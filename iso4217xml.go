@@ -1,5 +1,7 @@
 package currency
 
+//ISO 4217 XML fomart, please refer to https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+
 //ccyNtry represents the CcyNtry element in ISO 4217 XML
 type ccyNtry struct {
 	CtryNm     string `xml:"CtryNm"`
