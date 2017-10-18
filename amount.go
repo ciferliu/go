@@ -27,21 +27,8 @@ func (amount *Amount) setBasicUnitValue(floatValue float64) {
 
 //setMinorUnitValue set the value of amount in currency's minor unit(e.g: USD, 150 cent)
 func (amount *Amount) setMinorUnitValue(value int64) {
-	basicUnitValue := float64(value) / math.Pow10(int(amount.curreny.MinorUnitDigits()))
-	amount.roundBasicUnitValue(basicUnitValue)
-	// valueString := strconv.FormatInt(value, 10)
-	// valueBytes := []byte(valueString)
-	// valueBytesLength := len(valueBytes)
-
-	// decimalPointIndex := valueBytesLength - int(amount.curreny.MinorUnitDigits())
-
-	// newValueBytes := make([]byte, 0, valueBytesLength+1)
-	// newValueBytes = append(newValueBytes, valueBytes[0:decimalPointIndex]...)
-	// newValueBytes = append(newValueBytes, '.')
-	// newValueBytes = append(newValueBytes, valueBytes[decimalPointIndex:]...)
-
-	// amount.minorUnitValue = value
-	// amount.basicUnitValue = string(newValueBytes[0:])
+	basicUnitFloatValue := float64(value) / math.Pow10(int(amount.curreny.MinorUnitDigits()))
+	amount.setBasicUnitValue(basicUnitFloatValue)
 }
 
 //BasicUnitValue returns the value of amount in currency's basic unit
