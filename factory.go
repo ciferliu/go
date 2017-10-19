@@ -46,7 +46,7 @@ func (factory *factory) NewCurrency(currencyCode string, minorUnitDigits uint8) 
 	return currency, nil
 }
 
-//InitFromOnlineIso4217Xml init currencies from online ISON 4217 XML
+//InitFromOnlineIso4217Xml init currencies from online ISO 4217 XML
 //URL: https://www.currency-iso.org/dam/downloads/lists/list_one.xml
 func (factory *factory) InitFromOnlineIso4217Xml() error {
 	if factory.initFlag {
@@ -90,11 +90,11 @@ func (factory *factory) InitFromOnlineIso4217Xml() error {
 	return nil
 }
 
-//NewAmountByBasicUnit create a new amount object by using basic unit value
+//NewAmountInBasicUnit create a new amount object by using basic unit value
 //return error if currencyCode is not a three-letter alphabetic code
 //return error if currencyCode is not managed by factory
 //return error if basicUnitValue is not a numberic value
-func (factory *factory) NewAmountByBasicUnit(currencyCode string, basicUnitValue string) (Amount, error) {
+func (factory *factory) NewAmountInBasicUnit(currencyCode string, basicUnitValue string) (Amount, error) {
 	currencyCode = strings.ToUpper(strings.TrimSpace(currencyCode))
 	if !currencyCodeReg.MatchString(currencyCode) {
 		return Amount{}, errors.New("the currencyCode is not a three-letter alphabetic code")
@@ -115,10 +115,10 @@ func (factory *factory) NewAmountByBasicUnit(currencyCode string, basicUnitValue
 	return amount, nil
 }
 
-//NewAmountByMinorUnit create a new amount object by using minor unit value
+//NewAmountInMinorUnit create a new amount object by using minor unit value
 //return error if currencyCode is not a three-letter alphabetic code
 //return error if currencyCode is not managed by factory
-func (factory *factory) NewAmountByMinorUnit(currencyCode string, minorUnitValue int64) (Amount, error) {
+func (factory *factory) NewAmountInMinorUnit(currencyCode string, minorUnitValue int64) (Amount, error) {
 	currencyCode = strings.ToUpper(strings.TrimSpace(currencyCode))
 	if !currencyCodeReg.MatchString(currencyCode) {
 		return Amount{}, errors.New("the currencyCode is not three-letter alphabetic code")

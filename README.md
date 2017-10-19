@@ -38,8 +38,8 @@ gocurrency.Factory.NewCurrency("CNY", 2)
 //gocurrency.Factory.InitFromOnlineIso4217Xml()
 
 //2nd step: new amount object with currency property
-usdAmount1, _ := gocurrency.Factory.NewAmountByBasicUnit("USD", "1.567") //round to $1.57
-usdAmount2, _ := gocurrency.Factory.NewAmountByMinorUnit("USD", 43)//43 cent = $0.43
+usdAmount1, _ := gocurrency.Factory.NewAmountInBasicUnit("USD", "1.567") //round to $1.57
+usdAmount2, _ := gocurrency.Factory.NewAmountInMinorUnit("USD", 43)//43 cent = $0.43
 usdAmount, _ := usdAmount1.Add(usdAmount2)// $1.57 + $0.43 = $2.00
 fmt.Println(usdAmount.String()) //USD 2.00
 ```
