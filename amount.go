@@ -120,14 +120,14 @@ func (amount Amount) Fx(targetCurrencyCode string, rate float64) (Amount, error)
 	return result, nil
 }
 
-//Equals return true if the currency and value are same, otherwise return false
-func (amount Amount) Equals(other Amount) bool {
+//IsEquals return true if the currency and value are same, otherwise return false
+func (amount Amount) IsEquals(other Amount) bool {
 	return amount.curreny.Code() == other.curreny.Code() && amount.minorUnitValue == other.minorUnitValue
 }
 
-//GreatThan return true if amount > other, otherwise return false,
+//IsGreatThan return true if amount > other, otherwise return false,
 //return error if the currency of two amount are not same
-func (amount Amount) GreatThan(other Amount) (bool, error) {
+func (amount Amount) IsGreatThan(other Amount) (bool, error) {
 	if amount.curreny.Code() != other.curreny.Code() {
 		return false, errors.New("curreny are not same")
 	}
