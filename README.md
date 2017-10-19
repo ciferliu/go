@@ -32,7 +32,9 @@ import "fmt"
 //1st step: new currency object and register to factory
 gocurrency.Factory.NewCurrency("usd", 2)
 gocurrency.Factory.NewCurrency("CNY", 2)
+
 // or you can use the factory's InitFromOnlineIso4217Xml function to support all of ISO 4217 currencies:
+
 //gocurrency.Factory.InitFromOnlineIso4217Xml()
 
 //2nd step: new amount object with currency property
