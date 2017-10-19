@@ -13,7 +13,7 @@ gocurrency is a currency toolkit for Go
   * [ISO 4217](https://www.currency-iso.org/dam/downloads/lists/list_one.xml "ISO 4217") standard currencies
   * user-defined currencies
   * banker rounding algorithm
-  * operations: Add、Minus、Multiply、Divide、Fx、Equals、IsGreatThan
+  * operations: Add、Minus、Multiply、Divide、Fx、Equals、GreatThan
 
 ---------------------------------------
 

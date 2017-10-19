@@ -125,9 +125,9 @@ func (amount Amount) Equals(other Amount) bool {
 	return amount.curreny.Code() == other.curreny.Code() && amount.minorUnitValue == other.minorUnitValue
 }
 
-//IsGreatThan return true if amount > other, otherwise return false,
+//GreatThan return true if amount > other, otherwise return false,
 //return error if the currency of two amount are not same
-func (amount Amount) IsGreatThan(other Amount) (bool, error) {
+func (amount Amount) GreatThan(other Amount) (bool, error) {
 	if amount.curreny.Code() != other.curreny.Code() {
 		return false, errors.New("curreny are not same")
 	}

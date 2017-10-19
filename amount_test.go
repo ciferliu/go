@@ -160,27 +160,27 @@ func TestEquals(t *testing.T) {
 	}
 }
 
-func TestIsGreatThan(t *testing.T) {
+func TestGreatThan(t *testing.T) {
 	//case 1:
 	usdAmount, _ := Factory.NewAmountInBasicUnit("usd", "2")
 	cnyAmount, _ := Factory.NewAmountInBasicUnit("cny", "2.0")
-	isGreatThan, err := usdAmount.IsGreatThan(cnyAmount)
+	isGreatThan, err := usdAmount.GreatThan(cnyAmount)
 	if err == nil {
-		t.Errorf("%s IsGreatThan(%s), should be return an error, but no error return", usdAmount.String(), cnyAmount.String())
+		t.Errorf("%s GreatThan(%s), should be return an error, but no error return", usdAmount.String(), cnyAmount.String())
 	}
 
 	//case 2:
 	usdAmount2, _ := Factory.NewAmountInBasicUnit("usd", "2.0")
-	isGreatThan, err = usdAmount.IsGreatThan(cnyAmount)
+	isGreatThan, err = usdAmount.GreatThan(cnyAmount)
 	if isGreatThan {
-		t.Errorf("%s IsGreatThan(%s) == %t, want false", usdAmount.String(), usdAmount2.String(), isGreatThan)
+		t.Errorf("%s GreatThan(%s) == %t, want false", usdAmount.String(), usdAmount2.String(), isGreatThan)
 	}
 
 	//case 3:
 	usdAmount3, _ := Factory.NewAmountInBasicUnit("usd", "3.0")
-	isGreatThan, err = usdAmount3.IsGreatThan(usdAmount)
+	isGreatThan, err = usdAmount3.GreatThan(usdAmount)
 	if !isGreatThan {
-		t.Errorf("%s IsGreatThan(%s) == %t, want true", usdAmount3.String(), usdAmount.String(), isGreatThan)
+		t.Errorf("%s GreatThan(%s) == %t, want true", usdAmount3.String(), usdAmount.String(), isGreatThan)
 	}
 }
 
